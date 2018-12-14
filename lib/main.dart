@@ -7,14 +7,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Welcome to Flutter'),
-        ),
-        body: new Center(
-          child: new RandomWords(),
-        ),
-      ),
+      title: 'Random Words Generator',
+      home: new RandomWords(),
     );
   }
 }
@@ -29,8 +23,46 @@ class RandomWords extends StatefulWidget {
 class RandomWordsState extends State<RandomWords> {
   final _dataSource = <WordPair>[];
   final _font = const TextStyle(fontSize: 18);
+  final _favors = new Set<WordPair>();
 
-  Widget _createListView() {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Random Words Generator'),
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.list), onPressed: _gotoFavorsPage)
+        ],
+      ),
+      body: _buildListView(),
+    );
+  }
+
+  void _gotoFavorsPage() {
+    Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+      final tiles = _favors.map((pair) {
+        return new ListTile(
+          title: new Text(
+            pair.asPascalCase,
+            style: _font,
+          ),
+        );
+      });
+      final items =
+          ListTile.divideTiles(context: context, tiles: tiles).toList();
+
+      return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Favourite Words'),
+        ),
+        body: new ListView(
+          children: items,
+        ),
+      );
+    }));
+  }
+
+  Widget _buildListView() {
     return new ListView.builder(itemBuilder: (context, i) {
       if (i.isOdd) return new Divider();
 
@@ -43,16 +75,25 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(WordPair pair) {
+    final isFavor = _favors.contains(pair);
     return new ListTile(
       title: new Text(
         pair.asPascalCase,
         style: _font,
       ),
+      trailing: new Icon(
+        isFavor ? Icons.favorite : Icons.favorite_border,
+        color: isFavor ? Colors.red : null,
+      ),
+      onTap: () {
+        setState(() {
+          if (isFavor) {
+            _favors.remove(pair);
+          } else {
+            _favors.add(pair);
+          }
+        });
+      },
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _createListView();
   }
 }
