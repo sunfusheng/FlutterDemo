@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 
 void main() => runApp(new MyApp());
 
@@ -27,79 +26,67 @@ class RandomWords extends StatefulWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  final _dataSource = <WordPair>[];
-  final _font = const TextStyle(fontSize: 18);
-  final _favors = new Set<WordPair>();
+  final _dataSource = <String>[];
+  final _textStyle = const TextStyle(fontSize: 18);
+
+  @override
+  void initState() {
+    super.initState();
+    _dataSource.add('基础组件');
+    _dataSource.add('Material Components');
+    _dataSource.add('Cupertino(iOS风格的widget)');
+    _dataSource.add('Layout');
+    _dataSource.add('Assets、图片、Icons');
+    _dataSource.add('动画和Motion');
+    _dataSource.add('交互模型');
+    _dataSource.add('样式');
+    _dataSource.add('绘制和效果');
+    _dataSource.add('Async');
+    _dataSource.add('滚动');
+    _dataSource.add('辅助功能');
+  }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Random Words Generator'),
+        title: new Text('Flutter Study'),
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.list), onPressed: _gotoFavorsPage)
+          new IconButton(icon: new Icon(Icons.info), onPressed: _gotoAboutPage)
         ],
       ),
       body: _buildListView(),
     );
   }
 
-  void _gotoFavorsPage() {
-    Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
-      final tiles = _favors.map((pair) {
-        return new ListTile(
-          title: new Text(
-            pair.asPascalCase,
-            style: _font,
-          ),
-        );
-      });
-      final items =
-          ListTile.divideTiles(context: context, tiles: tiles).toList();
-
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Favourite Words'),
-        ),
-        body: new ListView(
-          children: items,
-        ),
-      );
-    }));
-  }
+  void _gotoAboutPage() {}
 
   Widget _buildListView() {
     return new ListView.builder(itemBuilder: (context, i) {
-      if (i.isOdd) return new Divider();
-
-      final index = i ~/ 2;
-      if (index >= _dataSource.length) {
-        _dataSource.addAll(generateWordPairs().take(10));
+      Widget widget = null;
+//      if (i.isOdd) return new Divider();
+      if (i >= _dataSource.length) {
+        widget = null;
+      } else {
+        widget = _buildRow(_dataSource[i]);
       }
-      return _buildRow(_dataSource[index]);
+      return widget;
     });
   }
 
-  Widget _buildRow(WordPair pair) {
-    final isFavor = _favors.contains(pair);
+  Widget _buildRow(String text) {
     return new ListTile(
-      title: new Text(
-        pair.asPascalCase,
-        style: _font,
+      title: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            text,
+            style: _textStyle,
+          ),
+          Divider()
+        ],
       ),
-      trailing: new Icon(
-        isFavor ? Icons.favorite : Icons.favorite_border,
-        color: isFavor ? Colors.red : null,
-      ),
-      onTap: () {
-        setState(() {
-          if (isFavor) {
-            _favors.remove(pair);
-          } else {
-            _favors.add(pair);
-          }
-        });
-      },
     );
   }
 }
