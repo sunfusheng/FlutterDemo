@@ -62,31 +62,29 @@ class RandomWordsState extends State<RandomWords> {
   void _gotoAboutPage() {}
 
   Widget _buildListView() {
-    return new ListView.builder(itemBuilder: (context, i) {
-      Widget widget = null;
-//      if (i.isOdd) return new Divider();
-      if (i >= _dataSource.length) {
-        widget = null;
-      } else {
-        widget = _buildRow(_dataSource[i]);
-      }
-      return widget;
-    });
+    return new ListView.builder(
+        itemCount: _dataSource.length,
+        itemBuilder: (context, i) {
+          return _buildRow(_dataSource[i]);
+        });
   }
 
   Widget _buildRow(String text) {
-    return new ListTile(
-      title: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
+    return new Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        new Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
             text,
             style: _textStyle,
           ),
-          Divider()
-        ],
-      ),
+        ),
+        Divider(
+          height: 1,
+        )
+      ],
     );
   }
 }
