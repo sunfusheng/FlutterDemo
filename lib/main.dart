@@ -70,21 +70,25 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(String text) {
-    return new Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        new Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text(
-            text,
-            style: _textStyle,
-          ),
-        ),
-        Divider(
-          height: 1,
-        )
-      ],
+    return new GestureDetector(
+      onTap: () {
+
+      },
+      child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            new Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                text,
+                style: _textStyle,
+              ),
+            ),
+            Divider(
+              height: 1,
+            ),
+          ]),
     );
   }
 }
