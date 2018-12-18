@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.sunfusheng.flutter.study"
+        applicationId "com.sunfusheng.flutter.demo"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()

@@ -1,4 +1,4 @@
-package com.sunfusheng.flutter.flutterstudy
+package com.sunfusheng.flutter.demo
 
 import android.os.Build
 import android.os.Bundle

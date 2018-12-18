@@ -1,6 +1,6 @@
-# flutter_study
+# FlutterDemo
 
-To study Flutter.
+To learn Flutter.
 
 ## Getting Started
 

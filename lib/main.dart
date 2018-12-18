@@ -6,7 +6,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Random Words Generator',
       theme: new ThemeData(
         primaryColor: Colors.white,
         primaryColorDark: Colors.white,
@@ -50,7 +49,7 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Flutter Study'),
+        title: new Text('To learn Flutter.'),
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.info), onPressed: _gotoAboutPage)
         ],
@@ -71,9 +70,7 @@ class RandomWordsState extends State<RandomWords> {
 
   Widget _buildRow(String text) {
     return new GestureDetector(
-      onTap: () {
-
-      },
+      onTap: () {},
       child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
