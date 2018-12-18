@@ -1,6 +1,6 @@
 # FlutterDemo
 
-To learn Flutter.
+To Learn Flutter.
 
 ## Getting Started
 

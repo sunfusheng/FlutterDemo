@@ -12,19 +12,21 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         accentColor: Colors.white,
       ),
-      home: new RandomWords(),
+      home: new MainPageWidget(),
     );
   }
 }
 
-class RandomWords extends StatefulWidget {
+class MainPageWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new RandomWordsState();
+    return new MainPageState();
   }
 }
 
-class RandomWordsState extends State<RandomWords> {
+class MainPageState extends State {
+  static final GlobalKey<ScaffoldState> _scaffoldKey =
+      GlobalKey<ScaffoldState>();
   final _dataSource = <String>[];
   final _textStyle = const TextStyle(fontSize: 18);
 
@@ -49,43 +51,43 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('To learn Flutter.'),
+        title: new Text('To Learn Flutter.'),
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.info), onPressed: _gotoAboutPage)
         ],
       ),
-      body: _buildListView(),
+      body: _buildListView(context),
     );
   }
 
   void _gotoAboutPage() {}
 
-  Widget _buildListView() {
-    return new ListView.builder(
+  Widget _buildListView(BuildContext context) {
+    return new ListView.separated(
         itemCount: _dataSource.length,
-        itemBuilder: (context, i) {
-          return _buildRow(_dataSource[i]);
+        itemBuilder: (context, position) {
+          return _buildRow(context, _dataSource[position]);
+        },
+        separatorBuilder: (context, position) {
+          return new Divider(
+            height: 0.5,
+            indent: 16,
+          );
         });
   }
 
-  Widget _buildRow(String text) {
-    return new GestureDetector(
-      onTap: () {},
-      child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                text,
-                style: _textStyle,
-              ),
-            ),
-            Divider(
-              height: 1,
-            ),
-          ]),
+  Widget _buildRow(BuildContext context, String text) {
+    return new InkWell(
+      onTap: () {
+        Scaffold.of(context)..showSnackBar(SnackBar(content: Text(text)));
+      },
+      child: new Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(
+          text,
+          style: _textStyle,
+        ),
+      ),
     );
   }
 }
