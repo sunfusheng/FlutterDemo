@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:FlutterWidgets/pages/AboutPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,7 +37,10 @@ class _HomePageState extends State {
     );
   }
 
-  void _gotoAboutPage() {}
+  void _gotoAboutPage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => AboutPage()));
+  }
 
   Widget _buildListView(BuildContext context) {
     return ListView.separated(
