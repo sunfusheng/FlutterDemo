@@ -1,4 +1,4 @@
-package com.sunfusheng.flutter.demo
+package com.sunfusheng.flutter.widgets
 
 import android.os.Build
 import android.os.Bundle
