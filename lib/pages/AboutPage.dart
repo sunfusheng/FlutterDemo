@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AboutPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _AboutPageState();
-  }
-}
-
-class _AboutPageState extends State {
+class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +9,10 @@ class _AboutPageState extends State {
         ),
         body: Padding(
           padding: EdgeInsets.all(16),
-          child: Text('作者：孙福生'),
+          child: Text(
+            "GitHub: https: //github.com/sunfusheng\n作者: 孙福生",
+            style: TextStyle(fontSize: 15),
+          ),
         ));
   }
 }

@@ -1,27 +1,23 @@
+import 'package:FlutterWidgets/model/Router.dart';
+import 'package:FlutterWidgets/pages/basic/BasicPage.dart';
+import 'package:FlutterWidgets/widgets/RouterListView.dart';
 import 'package:flutter/material.dart';
 import 'package:FlutterWidgets/pages/AboutPage.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _HomePageState();
-  }
-}
-
-class _HomePageState extends State {
+class HomePage extends StatelessWidget {
   final items = [
-    'Basic Widgets',
-    'Material Widgets',
-    'Cupertino Widgets',
-    'Layout',
-    'Assets、Image、Icons',
-    '动画和Motion',
-    '交互模型',
-    '样式',
-    '绘制和效果',
-    'async、await',
-    '滚动',
-    '辅助功能',
+    Router('Basic Widgets', BasicPage()),
+    Router('Material Widgets', null),
+    Router('Cupertino Widgets', null),
+    Router('Layout', null),
+    Router('Assets、Image、Icons', null),
+    Router('动画和Motion', null),
+    Router('交互模型', null),
+    Router('样式', null),
+    Router('绘制和效果', null),
+    Router('async、await', null),
+    Router('滚动', null),
+    Router('辅助功能', null),
   ];
 
   @override
@@ -30,46 +26,15 @@ class _HomePageState extends State {
       appBar: AppBar(
         title: Text('Flutter Widgets'),
         actions: <Widget>[
-          IconButton(icon: new Icon(Icons.info), onPressed: _gotoAboutPage)
+          IconButton(
+              icon: new Icon(Icons.info),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutPage()));
+              })
         ],
       ),
-      body: _buildListView(context),
-    );
-  }
-
-  void _gotoAboutPage() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => AboutPage()));
-  }
-
-  Widget _buildListView(BuildContext context) {
-    return ListView.separated(
-        itemCount: items != null ? items.length : 0,
-        itemBuilder: (context, index) {
-          return _buildRow(context, items[index]);
-        },
-        separatorBuilder: (context, index) {
-          return Divider(
-            height: 0.5,
-            indent: 16,
-          );
-        });
-  }
-
-  Widget _buildRow(BuildContext context, String text) {
-    return InkWell(
-      onTap: () {
-        Scaffold.of(context)
-          ..removeCurrentSnackBar()
-          ..showSnackBar(SnackBar(content: Text(text)));
-      },
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
+      body: RouterListView(items).build(),
     );
   }
 }
