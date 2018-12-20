@@ -23,7 +23,7 @@ class BasicPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Basic Widgets'),
       ),
-      body: RouterListView(items).build(),
+      body: RouterListView(items),
     );
   }
 }

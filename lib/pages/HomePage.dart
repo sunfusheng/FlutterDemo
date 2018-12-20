@@ -2,7 +2,7 @@ import 'package:FlutterWidgets/model/Router.dart';
 import 'package:FlutterWidgets/pages/basic/BasicPage.dart';
 import 'package:FlutterWidgets/widgets/RouterListView.dart';
 import 'package:flutter/material.dart';
-import 'package:FlutterWidgets/pages/AboutPage.dart';
+import 'package:FlutterWidgets/pages/about/AboutPage.dart';
 
 class HomePage extends StatelessWidget {
   final items = [
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
               })
         ],
       ),
-      body: RouterListView(items).build(),
+      body: RouterListView(items),
     );
   }
 }

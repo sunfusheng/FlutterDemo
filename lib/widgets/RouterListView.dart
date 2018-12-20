@@ -2,21 +2,22 @@ import 'package:FlutterWidgets/model/Router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class RouterListView {
-  List<Router> items;
+class RouterListView extends StatelessWidget {
+  final List<Router> items;
 
   RouterListView(this.items);
 
-  Widget build() {
+  @override
+  Widget build(BuildContext context) {
     return ListView.separated(
         itemCount: items != null ? items.length : 0,
         itemBuilder: (context, index) {
           return _buildRow(context, items[index]);
         },
         separatorBuilder: (context, index) {
-          return Divider(
-            height: 0.5,
-            indent: 16,
+          return Padding(
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+            child: Divider(height: 0.5),
           );
         });
   }
@@ -35,9 +36,17 @@ class RouterListView {
       },
       child: Padding(
         padding: EdgeInsets.all(16),
-        child: Text(
-          item.title,
-          style: TextStyle(fontSize: 18),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                item.title,
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            item.nextPage != null ? Icon(Icons.chevron_right) : Text(''),
+          ],
         ),
       ),
     );
