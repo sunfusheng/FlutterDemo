@@ -6,12 +6,11 @@ import 'package:flutter/material.dart';
 class BasicPage extends StatelessWidget {
   final items = [
     Router('Container', ContainerPage()),
-    Router('Row', null),
-    Router('Column', null),
-    Router('Image', null),
+    Router('Column,Row', null),
     Router('Text', null),
-    Router('Icon', null),
     Router('RaisedButton', null),
+    Router('Icon', null),
+    Router('Image', null),
     Router('Scaffold', null),
     Router('Appbar', null),
     Router('FlutterLogo', null),
