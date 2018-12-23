@@ -9,10 +9,11 @@ class RowColumnFlexExpanded extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         verticalDirection: VerticalDirection.down,
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
@@ -58,7 +59,7 @@ class RowColumnFlexExpanded extends StatelessWidget {
             ],
           ),
           Flex(
-            direction: Axis.vertical,
+            direction: Axis.horizontal,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
