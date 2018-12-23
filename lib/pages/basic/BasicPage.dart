@@ -1,12 +1,13 @@
 import 'package:FlutterWidgets/model/Router.dart';
-import 'package:FlutterWidgets/pages/basic/ContainerPage.dart';
+import 'package:FlutterWidgets/pages/basic/ContainerBoxDecoration.dart';
+import 'package:FlutterWidgets/pages/basic/RowColumnFlexExpanded.dart';
 import 'package:FlutterWidgets/widgets/RouterListView.dart';
 import 'package:flutter/material.dart';
 
 class BasicPage extends StatelessWidget {
   final items = [
-    Router('Container', ContainerPage()),
-    Router('Column,Row', null),
+    Router('Container, BoxDecoration', ContainerBoxDecoration()),
+    Router('Row, column, Flex, Expanded', RowColumnFlexExpanded()),
     Router('Text', null),
     Router('RaisedButton', null),
     Router('Icon', null),

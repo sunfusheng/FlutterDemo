@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ContainerPage extends StatelessWidget {
+class ContainerBoxDecoration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Container'),
+        title: Text('Container, BoxDecoration'),
       ),
       body: Builder(
         // ignore: argument_type_not_assignable
@@ -16,25 +15,6 @@ class ContainerPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(16),
-                  padding: EdgeInsets.all(16),
-                  color: Colors.blue,
-                  child: Text(
-                    'Text Widget',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.all(16),
-                  padding: EdgeInsets.all(16),
-                  color: Colors.red,
-                  child: Text(
-                    'Text Widget',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
                 Container(
                   margin: EdgeInsets.all(16),
                   padding: EdgeInsets.all(32),
@@ -47,7 +27,7 @@ class ContainerPage extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     color: Colors.red,
                     child: Text(
-                      'Text Widget',
+                      'Text',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -59,7 +39,7 @@ class ContainerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.red, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(25))),
-                  child: Text('click ?'),
+                  child: Text('Container click ?'),
                 ),
                 Container(
                   margin: EdgeInsets.all(16),
@@ -74,7 +54,7 @@ class ContainerPage extends StatelessWidget {
                     ),
                     child: Container(
                       alignment: Alignment.center,
-                      child: new Text('click !'),
+                      child: new Text('OutlineButton click !'),
                     ),
                     onPressed: () {
                       Scaffold.of(context)
@@ -101,7 +81,7 @@ class ContainerPage extends StatelessWidget {
                   margin: EdgeInsets.all(16),
                   height: 50,
                   foregroundDecoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 2),
+                    border: Border.all(color: Color(0xFFE65100), width: 2),
                     borderRadius: BorderRadius.all(Radius.circular(25)),
                   ),
                   decoration: BoxDecoration(
