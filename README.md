@@ -1,11 +1,13 @@
 # FlutterWidgets
 
+Flutter是Google推出的移动UI框架，可以快速在Android和iOS上构建高质量、高保真的界面，
+这个工程主要记录Flutter Widget的学习与实践, Let's to Learn Flutter together!
 
-## To Learn Flutter.
+## 【To Learn Flutter】系列学习文章
 
-[To Learn Flutter(一): 初识Flutter跨平台应用程序开发框架](https://github.com/sunfusheng/FlutterWidgets/posts/001_To_Learn_Flutter.md)  
-[To Learn Flutter(一): Container, BoxDecoration](https://github.com/sunfusheng/FlutterWidgets/posts/002_Container_BoxDecoration.md)  
-[To Learn Flutter(一): Row, Column, Flex, Expanded](https://github.com/sunfusheng/FlutterWidgets/posts/003_Row_Column_Flex_Expanded.md)
+[To Learn Flutter(一): 初识Flutter跨平台应用程序开发框架](https://github.com/sunfusheng/FlutterWidgets/blob/master/posts/001_To_Learn_Flutter.md)  
+[To Learn Flutter(二): Container, BoxDecoration](https://github.com/sunfusheng/FlutterWidgets/blob/master/posts/002_Container_BoxDecoration.md)  
+[To Learn Flutter(三): Row, Column, Flex, Expanded](https://github.com/sunfusheng/FlutterWidgets/blob/master/posts/003_Row_Column_Flex_Expanded.md)
 
 ## 推荐网站
 
