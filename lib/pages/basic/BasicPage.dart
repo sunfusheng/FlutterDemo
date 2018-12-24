@@ -1,4 +1,5 @@
 import 'package:FlutterWidgets/model/Router.dart';
+import 'package:FlutterWidgets/pages/about/WebViewPage.dart';
 import 'package:FlutterWidgets/pages/basic/ContainerBoxDecoration.dart';
 import 'package:FlutterWidgets/pages/basic/RowColumnFlexExpanded.dart';
 import 'package:FlutterWidgets/widgets/RouterListView.dart';
@@ -23,6 +24,17 @@ class BasicPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Basic Widgets'),
+        actions: <Widget>[
+          IconButton(
+              icon: new Icon(Icons.info),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewPage('https://www.baidu.com/')));
+              })
+        ],
       ),
       body: RouterListView(items),
     );
