@@ -1,4 +1,4 @@
-import 'package:FlutterWidgets/pages/WebViewPage.dart';
+import 'package:FlutterWidgets/widgets/WebViewPage.dart';
 import 'package:flutter/material.dart';
 
 class RowColumnFlexExpanded extends StatelessWidget {
@@ -159,7 +159,14 @@ class RowColumnFlexExpanded extends StatelessWidget {
                 ),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WebViewPage('孙福生的博客', 'http://sunfusheng.com/'),
+                ),
+              );
+            },
           ),
         ],
       ),

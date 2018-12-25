@@ -23,23 +23,30 @@ class _WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double loadingViewHeight = 3;
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        bottom: new PreferredSize(
-            preferredSize: const Size.fromHeight(1.0),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(loadingViewHeight),
+          child: Container(
+            height: loadingViewHeight,
             child: isLoading
                 ? LinearProgressIndicator(
                     backgroundColor: Colors.red,
-                    valueColor: AlwaysStoppedAnimation(Colors.orange))
+                    valueColor: AlwaysStoppedAnimation(Colors.orange),
+                  )
                 : Divider(
-                    height: 1,
+                    height: loadingViewHeight,
                     color: Theme.of(context).primaryColor,
-                  )),
+                  ),
+          ),
+        ),
       ),
       body: WebviewScaffold(
         url: url,
         withZoom: false,
+        appCacheEnabled: true,
         withLocalStorage: true,
         withJavascript: true,
       ),
@@ -50,14 +57,18 @@ class _WebViewPageState extends State<WebViewPage> {
   void initState() {
     super.initState();
     webViewPlugin.onStateChanged.listen((WebViewStateChanged state) {
-      if (state.type == WebViewState.shouldStart) {
-        setState(() {
-          isLoading = true;
-        });
-      } else if (state.type == WebViewState.finishLoad) {
-        setState(() {
-          isLoading = false;
-        });
+      switch (state.type) {
+        case WebViewState.shouldStart:
+        case WebViewState.startLoad:
+          setState(() {
+            isLoading = true;
+          });
+          break;
+        case WebViewState.finishLoad:
+          setState(() {
+            isLoading = false;
+          });
+          break;
       }
     });
   }
