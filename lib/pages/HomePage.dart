@@ -1,8 +1,8 @@
 import 'package:FlutterWidgets/model/Router.dart';
+import 'package:FlutterWidgets/pages/WebViewPage.dart';
 import 'package:FlutterWidgets/pages/basic/BasicPage.dart';
 import 'package:FlutterWidgets/widgets/RouterListView.dart';
 import 'package:flutter/material.dart';
-import 'package:FlutterWidgets/pages/about/AboutPage.dart';
 
 class HomePage extends StatelessWidget {
   final items = [
@@ -20,6 +20,9 @@ class HomePage extends StatelessWidget {
     Router('辅助功能', null),
   ];
 
+  final title = 'Basic Widgets';
+  final url = 'https://github.com/sunfusheng/FlutterWidgets';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +32,12 @@ class HomePage extends StatelessWidget {
           IconButton(
               icon: new Icon(Icons.info),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AboutPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WebViewPage(title, url),
+                  ),
+                );
               })
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:FlutterWidgets/model/Router.dart';
-import 'package:FlutterWidgets/pages/about/WebViewPage.dart';
+import 'package:FlutterWidgets/pages/WebViewPage.dart';
 import 'package:FlutterWidgets/pages/basic/ContainerBoxDecoration.dart';
 import 'package:FlutterWidgets/pages/basic/RowColumnFlexExpanded.dart';
 import 'package:FlutterWidgets/widgets/RouterListView.dart';
@@ -19,20 +19,25 @@ class BasicPage extends StatelessWidget {
     Router('Placeholder', null),
   ];
 
+  final title = 'Basic Widgets';
+  final url =
+      'https://github.com/sunfusheng/FlutterWidgets/tree/master/lib/pages/basic/BasicPage.dart';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Basic Widgets'),
+        title: Text(title),
         actions: <Widget>[
           IconButton(
               icon: new Icon(Icons.info),
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            WebViewPage('https://www.baidu.com/')));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WebViewPage(title, url),
+                  ),
+                );
               })
         ],
       ),
