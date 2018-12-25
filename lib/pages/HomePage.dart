@@ -21,7 +21,8 @@ class HomePage extends StatelessWidget {
   ];
 
   final title = 'Flutter Widgets';
-  final url = 'https://github.com/sunfusheng/FlutterWidgets/blob/master/README.md';
+  final url =
+      'https://github.com/sunfusheng/FlutterWidgets/blob/master/README.md';
 
   @override
   Widget build(BuildContext context) {
