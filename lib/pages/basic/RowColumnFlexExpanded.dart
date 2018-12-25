@@ -1,11 +1,28 @@
+import 'package:FlutterWidgets/pages/WebViewPage.dart';
 import 'package:flutter/material.dart';
 
 class RowColumnFlexExpanded extends StatelessWidget {
+  final title = 'Row, column, Flex, Expanded';
+  final url =
+      'https://github.com/sunfusheng/FlutterWidgets/tree/master/lib/pages/basic/ContainerBoxDecoration.dart';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Row, column, Flex, Expanded'),
+        title: Text(title),
+        actions: <Widget>[
+          IconButton(
+              icon: new Icon(Icons.info),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WebViewPage(title, url),
+                  ),
+                );
+              })
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +85,7 @@ class RowColumnFlexExpanded extends StatelessWidget {
                 width: 60,
                 height: 60,
                 margin: EdgeInsets.all(16),
-                color: Color(0xFFFF9E80),
+                color: Color(0xFFDD2C00),
                 child: Text(
                   'Text1',
                   style: TextStyle(color: Colors.white),
@@ -90,7 +107,7 @@ class RowColumnFlexExpanded extends StatelessWidget {
                 width: 60,
                 height: 60,
                 margin: EdgeInsets.all(16),
-                color: Color(0xFFDD2C00),
+                color: Color(0xFFFF9E80),
                 child: Text(
                   'Text3',
                   style: TextStyle(color: Colors.white),

@@ -1,11 +1,28 @@
+import 'package:FlutterWidgets/pages/WebViewPage.dart';
 import 'package:flutter/material.dart';
 
 class ContainerBoxDecoration extends StatelessWidget {
+  final title = 'Container, BoxDecoration';
+  final url =
+      'https://github.com/sunfusheng/FlutterWidgets/tree/master/lib/pages/basic/ContainerBoxDecoration.dart';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Container, BoxDecoration'),
+        title: Text(title),
+        actions: <Widget>[
+          IconButton(
+              icon: new Icon(Icons.info),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WebViewPage(title, url),
+                  ),
+                );
+              })
+        ],
       ),
       body: Builder(
         // ignore: argument_type_not_assignable
