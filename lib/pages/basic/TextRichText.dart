@@ -1,4 +1,5 @@
 import 'package:FlutterWidgets/widgets/WebViewPage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TextRichText extends StatelessWidget {
@@ -120,16 +121,46 @@ class TextRichText extends StatelessWidget {
                         TextSpan(
                           text: 'rich',
                           style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.red),
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.red,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Scaffold.of(context)
+                                ..removeCurrentSnackBar()
+                                ..showSnackBar(new SnackBar(
+                                    content: new Text("click rich text")));
+                            },
                         ),
                         TextSpan(
                           text: ' text.',
                         ),
                       ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(16),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '这是华文行楷字体',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'huawenxingkai',
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(16),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '这是方正简体字体',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'fangzhengjianti',
                     ),
                   ),
                 ),
