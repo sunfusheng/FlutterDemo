@@ -119,7 +119,7 @@ class TextRichText extends StatelessWidget {
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'rich',
+                          text: 'clickable rich text',
                           style: TextStyle(
                             color: Colors.red,
                             fontWeight: FontWeight.bold,
@@ -132,11 +132,11 @@ class TextRichText extends StatelessWidget {
                               Scaffold.of(context)
                                 ..removeCurrentSnackBar()
                                 ..showSnackBar(new SnackBar(
-                                    content: new Text("click rich text")));
+                                    content: new Text("Yeah, it's clickable.")));
                             },
                         ),
                         TextSpan(
-                          text: ' text.',
+                          text: ' !!! ',
                         ),
                       ],
                     ),
@@ -146,7 +146,7 @@ class TextRichText extends StatelessWidget {
                   margin: EdgeInsets.all(16),
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '这是华文行楷字体',
+                    '我是华文行楷字体',
                     style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'huawenxingkai',
@@ -157,12 +157,68 @@ class TextRichText extends StatelessWidget {
                   margin: EdgeInsets.all(16),
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '这是方正简体字体',
+                    '我是方正简体字体',
                     style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'fangzhengjianti',
                     ),
                   ),
+                ),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      alignment: Alignment.centerLeft,
+                      child: RotatedBox(
+                        quarterTurns: 0,
+                        child: Text(
+                          '水平',
+                          style: TextStyle(
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      alignment: Alignment.centerLeft,
+                      child: RotatedBox(
+                        quarterTurns: 1,
+                        child: Text(
+                          '顺时针90°翻转',
+                          style: TextStyle(
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      alignment: Alignment.centerLeft,
+                      child: RotatedBox(
+                        quarterTurns: 2,
+                        child: Text(
+                          '顺时针180°翻转',
+                          style: TextStyle(
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      alignment: Alignment.centerLeft,
+                      child: RotatedBox(
+                        quarterTurns: 3,
+                        child: Text(
+                          '顺时针270°翻转',
+                          style: TextStyle(
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
