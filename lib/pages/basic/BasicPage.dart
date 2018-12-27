@@ -1,4 +1,5 @@
 import 'package:FlutterWidgets/model/Router.dart';
+import 'package:FlutterWidgets/pages/basic/TextRichText.dart';
 import 'package:FlutterWidgets/widgets/WebViewPage.dart';
 import 'package:FlutterWidgets/pages/basic/ContainerBoxDecoration.dart';
 import 'package:FlutterWidgets/pages/basic/RowColumnFlexExpanded.dart';
@@ -9,7 +10,7 @@ class BasicPage extends StatelessWidget {
   final items = [
     Router('Container, BoxDecoration', ContainerBoxDecoration()),
     Router('Row, column, Flex, Expanded', RowColumnFlexExpanded()),
-    Router('Text', null),
+    Router('Text, RichText', TextRichText()),
     Router('RaisedButton', null),
     Router('Icon', null),
     Router('Image', null),

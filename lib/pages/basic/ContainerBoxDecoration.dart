@@ -25,7 +25,6 @@ class ContainerBoxDecoration extends StatelessWidget {
         ],
       ),
       body: Builder(
-        // ignore: argument_type_not_assignable
         builder: (BuildContext context) {
           return SingleChildScrollView(
             child: Column(
