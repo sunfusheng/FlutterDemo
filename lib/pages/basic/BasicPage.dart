@@ -1,4 +1,5 @@
 import 'package:FlutterWidgets/model/Router.dart';
+import 'package:FlutterWidgets/pages/basic/RaisedButtonPage.dart';
 import 'package:FlutterWidgets/pages/basic/TextRichText.dart';
 import 'package:FlutterWidgets/widgets/WebViewPage.dart';
 import 'package:FlutterWidgets/pages/basic/ContainerBoxDecoration.dart';
@@ -11,9 +12,8 @@ class BasicPage extends StatelessWidget {
     Router('Container, BoxDecoration', ContainerBoxDecoration()),
     Router('Row, column, Flex, Expanded', RowColumnFlexExpanded()),
     Router('Text, RichText', TextRichText()),
-    Router('RaisedButton', null),
-    Router('Icon', null),
-    Router('Image', null),
+    Router('RaisedButton', RaisedButtonPage()),
+    Router('Icon, Image', null),
     Router('Scaffold', null),
     Router('Appbar', null),
     Router('FlutterLogo', null),
