@@ -7,7 +7,7 @@
 
 看一下本次我们要完成的Flutter示例样式，我们要在Android、iOS和MacOS跑一跑，体验下Flutter跨端的魅力！
 
-![](posts/resources/to_learn_flutter.png)
+![](https://github.com/sunfusheng/FlutterWidgets/tree/master/posts/resources/to_learn_flutter.png)
 
 ### 1 Flutter简介
 
