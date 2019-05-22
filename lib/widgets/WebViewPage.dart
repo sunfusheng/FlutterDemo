@@ -69,6 +69,8 @@ class _WebViewPageState extends State<WebViewPage> {
             isLoading = false;
           });
           break;
+        default:
+          break;
       }
     });
   }
